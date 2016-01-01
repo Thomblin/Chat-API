@@ -5,7 +5,6 @@ require_once __DIR__."/ECPrivateKey.php";
 require_once __DIR__."/ECPublicKey.php";
 require_once __DIR__."/DjbECPublicKey.php";
 require_once __DIR__."/DjbECPrivateKey.php";
-if(!class_exists("Curve")){
 class Curve {
     const DJB_TYPE = 0x05;  // int
     public static function generateKeyPair ()
@@ -33,7 +32,6 @@ class Curve {
     }
     public static function calculateAgreement ($publicKey, $privateKey) // [ECPublicKey publicKey, ECPrivateKey privateKey]
     {
-
         if (($publicKey->getType() != $privateKey->getType()))
         {
             throw new InvalidKeyException("Public and private keys must be of the same type!");
@@ -77,5 +75,4 @@ class Curve {
         }
         else throw new Exception("Cannot generate secure random bytes");
     }
-}
 }
